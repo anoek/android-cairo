@@ -8,7 +8,7 @@ install:
 
 
 local.properties build.xml:
-	android update project --name pure-ndk --target 3 --path .
+	android update project --name pure-ndk --path .
 
 clean:
 	ndk-build clean

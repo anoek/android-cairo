@@ -8,7 +8,7 @@ install:
 
 
 local.properties build.xml:
-	android update project --name java-bitmap --target 2 --path .
+	android update project --name java-bitmap --path .
 
 clean:
 	ndk-build clean
