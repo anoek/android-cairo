@@ -39,6 +39,4 @@ in examples/
 Screenshots
 ===========
 
-From examples/pure-ndk
-
 ![From pure-ndk](https://github.com/anoek/android-cairo/raw/master/examples/pure-ndk/screenshot.png)
