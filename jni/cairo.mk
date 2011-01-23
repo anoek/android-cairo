@@ -22,6 +22,7 @@ LIBCAIRO_SRC = \
 	       cairo/src/cairo-font-face-twin-data.c         \
 	       cairo/src/cairo-font-options.c                \
 	       cairo/src/cairo-freelist.c                    \
+	       cairo/src/cairo-mesh-pattern-rasterizer.c     \
 	       cairo/src/cairo-gstate.c                      \
 	       cairo/src/cairo-hash.c                        \
 	       cairo/src/cairo-hull.c                        \
