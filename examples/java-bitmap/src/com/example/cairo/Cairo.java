@@ -37,12 +37,18 @@ class CairoView extends View {
     /* implementend by libjava-bitmap.so */
     private static native void drawFrame(Bitmap bitmap);
 
+    private Bitmap bmp;
+
     public CairoView(Context context) {
         super(context);
+        bmp = Bitmap.createBitmap(10,10, Bitmap.Config.RGB_565);
+
     }
 
     @Override protected void onDraw(Canvas canvas) {
-        Bitmap bmp = Bitmap.createBitmap(canvas.getWidth(), canvas.getHeight(), Bitmap.Config.RGB_565);
+        if (bmp.getWidth() != canvas.getWidth() || bmp.getHeight() != canvas.getHeight()) {
+            bmp = Bitmap.createBitmap(canvas.getWidth(), canvas.getHeight(), Bitmap.Config.RGB_565);
+        }
 
         drawFrame(bmp);
         canvas.drawBitmap(bmp, 0, 0, null);
