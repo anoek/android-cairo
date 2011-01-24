@@ -1,6 +1,3 @@
-#USE_ARM_SIMD:=1
-#USE_ARM_NEON:=1
-
 LOCAL_PATH := $(call my-dir)
 
 LIBPIXMAN_SRC= \
@@ -26,31 +23,24 @@ LIBPIXMAN_SRC= \
 	       pixman/pixman/pixman-trap.c             \
 	       pixman/pixman/pixman-timer.c            \
 	       pixman/pixman/pixman-matrix.c           \
+	       pixman/pixman/pixman-arm-simd.c         \
+	       pixman/pixman/pixman-arm-simd-asm.S     \
+	       pixman/pixman/pixman-arm-neon.c         \
+	       pixman/pixman/pixman-arm-neon-asm.S     \
 	       pixman-extra/pixman-combine32.c         \
 	       pixman-extra/pixman-combine64.c         \
 
 
 
-LIBPIXMAN_CFLAGS:=-D_USE_MATH_DEFINES -DPIXMAN_NO_TLS -DPACKAGE="android-cairo"
-
-
-ifdef USE_ARM_SIMD
-    LIBPIXMAN_SRC += pixman/pixman/pixman-arm-simd.c
-    LIBPIXMAN_SRC += pixman/pixman/pixman-arm-simd-asm.S
-    LIBPIXMAN_CFLAGS += -DUSE_ARM_SIMD
-endif
-
-ifdef USE_ARM_NEON
-    LIBPIXMAN_SRC += pixman/pixman/pixman-arm-neon.c
-    LIBPIXMAN_SRC += pixman/pixman/pixman-arm-neon-asm.S
-    LIBPIXMAN_CFLAGS += -mfpu=neon -DUSE_ARM_NEON
-endif
-
+LIBPIXMAN_CFLAGS:=-D_USE_MATH_DEFINES -DPIXMAN_NO_TLS -DPACKAGE="android-cairo" -DUSE_ARM_NEON -DUSE_ARM_SIMD
 
 include $(CLEAR_VARS)
 
 LOCAL_MODULE    := libpixman
-LOCAL_CFLAGS    := -O2 $(LIBPIXMAN_CFLAGS) -Ijni/pixman/pixman -Ijni/pixman-extra -Wno-missing-field-initializers
+LOCAL_CFLAGS    := -O2 $(LIBPIXMAN_CFLAGS) \
+    -Ijni/pixman/pixman -Ijni/pixman-extra \
+    -include "pixman-elf-fix.h" \
+    -Wno-missing-field-initializers
 LOCAL_LDFLAGS   := 
 LOCAL_SRC_FILES := $(LIBPIXMAN_SRC)
 
