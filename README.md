@@ -13,7 +13,7 @@ Obtaining the source code
 This git repository uses submodules to track the official cairo
 and pixman repositories, as such you'll need to do a 
 
-    git clone --recursive git@github.com:anoek/android-cairo.git
+    git clone --recursive git@github.com:thypon/android-canvas.git
 
 to pull down not only the android-cairo source, but also the
 cairo and pixman source.
@@ -39,4 +39,4 @@ in examples/
 Screenshots
 ===========
 
-![From pure-ndk](https://github.com/anoek/android-cairo/raw/master/examples/pure-ndk/screenshot.png)
+![From pure-ndk](https://github.com/thypon/android-canvas/raw/master/examples/pure-ndk/screenshot.png)

@@ -70,8 +70,8 @@ LIBCAIRO_SRC = \
 
 
 LIBCAIRO_CFLAGS:=                                                   \
-    -DPACKAGE_VERSION="\"android-cairo\""                           \
-    -DPACKAGE_BUGREPORT="\"http://github.com/anoek/android-cairo\"" \
+    -DPACKAGE_VERSION="\"android-canvas\""                           \
+    -DPACKAGE_BUGREPORT="\"http://github.com/thypon/android-canvas\"" \
     -DCAIRO_NO_MUTEX=1                                              \
     -DHAVE_STDINT_H
 
