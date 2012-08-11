@@ -23,6 +23,7 @@ LIBPIXMAN_SRC= \
 	       pixman/pixman/pixman-trap.c                  \
 	       pixman/pixman/pixman-timer.c                 \
 	       pixman/pixman/pixman-matrix.c                \
+	       pixman/pixman/pixman-noop.c                  \
 	       pixman/pixman/pixman-arm-simd.c              \
 	       pixman/pixman/pixman-arm-simd-asm.S          \
 	       pixman/pixman/pixman-arm-neon.c              \
@@ -33,7 +34,7 @@ LIBPIXMAN_SRC= \
 
 
 
-LIBPIXMAN_CFLAGS:=-D_USE_MATH_DEFINES -DPIXMAN_NO_TLS -DPACKAGE="android-cairo" -DUSE_ARM_NEON -DUSE_ARM_SIMD
+LIBPIXMAN_CFLAGS:=-D_USE_MATH_DEFINES -DPIXMAN_NO_TLS -DPACKAGE="android-cairo" -DUSE_ARM_NEON -DUSE_ARM_SIMD -DSIZE_MAX=((size_t)-1)
 
 include $(CLEAR_VARS)
 
@@ -44,5 +45,6 @@ LOCAL_CFLAGS    := -O2 $(LIBPIXMAN_CFLAGS) \
     -Wno-missing-field-initializers
 LOCAL_LDFLAGS   := 
 LOCAL_SRC_FILES := $(LIBPIXMAN_SRC)
+LOCAL_STATIC_LIBRARIES := cpufeatures
 
 include $(BUILD_STATIC_LIBRARY)
