@@ -4,7 +4,7 @@ config: local.properties build.xml
 
 install:
 	ndk-build
-	ant install
+	ant debug install
 
 
 local.properties build.xml:
