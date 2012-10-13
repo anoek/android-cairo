@@ -41,7 +41,6 @@ include $(CLEAR_VARS)
 LOCAL_MODULE    := libpixman
 LOCAL_CFLAGS    := -O2 $(LIBPIXMAN_CFLAGS) \
     -Ijni/pixman/pixman -Ijni/pixman-extra \
-    -include "pixman-elf-fix.h" \
     -Wno-missing-field-initializers
 LOCAL_LDFLAGS   := 
 LOCAL_SRC_FILES := $(LIBPIXMAN_SRC)
