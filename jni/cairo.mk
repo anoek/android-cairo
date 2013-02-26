@@ -48,6 +48,7 @@ LIBCAIRO_SRC = \
 	       cairo/src/cairo-lzw.c                         \
 	       cairo/src/cairo-mask-compositor.c             \
 	       cairo/src/cairo-matrix.c                      \
+	       cairo/src/cairo-mempool.c                     \
 	       cairo/src/cairo-mesh-pattern-rasterizer.c     \
 	       cairo/src/cairo-misc.c                        \
 	       cairo/src/cairo-mono-scan-converter.c         \
@@ -62,6 +63,7 @@ LIBCAIRO_SRC = \
 	       cairo/src/cairo-path-in-fill.c                \
 	       cairo/src/cairo-path-stroke-boxes.c           \
 	       cairo/src/cairo-path-stroke-polygon.c         \
+	       cairo/src/cairo-path-stroke-traps.c           \
 	       cairo/src/cairo-path-stroke-tristrip.c        \
 	       cairo/src/cairo-path-stroke.c                 \
 	       cairo/src/cairo-path.c                        \
@@ -123,7 +125,7 @@ LIBCAIRO_CFLAGS:=                                                   \
 include $(CLEAR_VARS)
 
 LOCAL_MODULE    := libcairo
-LOCAL_CFLAGS    := -O2 $(LIBCAIRO_CFLAGS) -Ijni/pixman/pixman -Ijni/cairo/src -Ijni/cairo-extra -Ijni/pixman-extra -Wno-missing-field-initializers -Wno-attributes
+LOCAL_CFLAGS    := -O2 $(LIBCAIRO_CFLAGS) -Ijni/pixman/pixman -Ijni/cairo/src -Ijni/cairo-extra -Ijni/pixman-extra -Wno-attributes
 LOCAL_LDFLAGS   := -lz
 LOCAL_SRC_FILES := $(LIBCAIRO_SRC)
 
