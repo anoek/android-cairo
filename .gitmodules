@@ -1,6 +1,6 @@
 [submodule "jni/cairo"]
 	path = jni/cairo
-	url = git://git.cairographics.org/git/cairo
+	url = git@github.com:bonzini/cairo.git
 [submodule "jni/pixman"]
 	path = jni/pixman
-	url = git://git.cairographics.org/git/pixman.git
+	url = git@github.com:servo/pixman.git
